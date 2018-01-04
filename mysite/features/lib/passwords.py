@@ -1,0 +1,1 @@
+ADMIN_PASSWORD = 'p4ssw0rd'
