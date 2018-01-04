@@ -2,8 +2,8 @@
 Feature: Polls
   # Enter feature description here
 
-#  Scenario: I can access polls
-#    * I can see the text 'Hello, world. You're at the polls index.' on the polls page
+  Scenario: I can access polls
+    * I can see the text 'Hello, world. You're at the polls index.' on the polls page
 
   Scenario: I can administer objects
     Given I am logged in as an administrator
