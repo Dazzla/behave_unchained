@@ -1,2 +1,3 @@
 # Created by .ignore support plugin (hsz.mobi)
 /mysite/features/lib/passwords.py
+/mysite/seleniumframework_tests.log

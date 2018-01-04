@@ -2,6 +2,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import *
+from mysite.features import environment
 import traceback
 import time
 
@@ -45,5 +46,6 @@ class BasePage(object):
         except AttributeError:
                 super(BasePage, self).__getattribute__("method_missing")(what)
 
+    @staticmethod
     def method_missing(self, what):
         print("No %s here!" % what)

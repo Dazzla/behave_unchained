@@ -1,43 +1,32 @@
-from behave import *
 from selenium import webdriver
-from behave import use_step_matcher
-from mysite.features.lib import environment, passwords
+from mysite.features.lib import passwords
+from mysite.features import environment
+from behave import *
+from mysite.features.lib.pages.polls_page import PollsPage
+from mysite.features.lib.pages.admin_page import AdminPage
+from mysite.features.lib.pages.object_admin_page import ObjectAdminPage
 
 use_step_matcher("re")
 
-browser = webdriver.Chrome()
 
-
-def after_feature():
-    browser.close()
-
-
-@given("I am on the (?P<page>\w+) page")
-def step_impl(context, page):
-    browser.get(environment.BASE_URL + page)
-
-
-@then("I can see the text '(?P<expected_page_text>Hello, world. You're at the polls index.)'")
+@step("I can see the text '(?P<expected_page_text>Hello, world. You're at the polls index.)' on the polls page")
 def step_impl(context, expected_page_text):
-    header_text = browser.find_element_by_tag_name('body').text
-    assert(expected_page_text in header_text)
+    polls_page = PollsPage(context)
+    polls_page.visit(environment.BASE_URL + 'polls/')
+    print(polls_page.is_displayed())
+    assert(polls_page.is_displayed())
 
 
-@given("I access '(?P<page_identifier>\S+)' admin")
-def step_impl(context, page_identifier):
-    browser.get(environment.ADMIN_URL + page_identifier)
-    assert(browser.find_element_by_class_name('addlink'))
-    pass
+@given("I access object admin")
+def step_impl(context):
+    object_admin = ObjectAdminPage(context)
+    object_admin.visit(environment.ADMIN_URL + 'polls/question')
+    assert(object_admin.is_displayed())
 
 
 @given("I am logged in as an administrator")
 def step_impl(context):
-    browser.get(environment.ADMIN_URL)
-    username_field = browser.find_element_by_id('id_username')
-    password_field = browser.find_element_by_id('id_password')
-    username_field.send_keys(environment.ADMIN_USERNAME)
-    password_field.send_keys(passwords.ADMIN_PASSWORD)
-    submit_button = browser.find_element_by_css_selector('#login-form > div.submit-row > input[type="submit"]')
-    submit_button.click()
-    dashboard = browser.find_element_by_class_name(' dashboard')
-    assert('Question' in dashboard.text)
+    admin_page = AdminPage(context)
+    admin_page.visit(environment.ADMIN_URL)
+    admin_page.log_in(environment.ADMIN_USERNAME, passwords.ADMIN_PASSWORD)
+    assert(admin_page.is_logged_in())
