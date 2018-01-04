@@ -1,20 +1,21 @@
 from selenium.webdriver.common.by import By
 from .base_page_object import BasePage
-from mysite.features import environment
+from behave_unchained.features import environment
 
-class ObjectAdminPage(BasePage):
+
+class PollsPage(BasePage):
     locator_dictionary = {
-        'add_object_link': (By.CLASS_NAME, 'addlink')
+        "page_text": (By.TAG_NAME, 'body')
     }
 
     def __init__(self, context):
         BasePage.__init__(
             self,
             context.browser,
-            base_url=environment.ADMIN_URL)
+            base_url=environment.BASE_URL)
 
     def is_displayed(self):
-        if self.find_element(*self.locator_dictionary['add_object_link']):
+        if self.find_element(*self.locator_dictionary['page_text']):
             return True
         else:
             return False

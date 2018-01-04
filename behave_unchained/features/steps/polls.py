@@ -1,10 +1,10 @@
 from selenium import webdriver
-from mysite.features.lib import passwords
-from mysite.features import environment
+from behave_unchained.features.lib import passwords
+from behave_unchained.features import environment
 from behave import *
-from mysite.features.lib.pages.polls_page import PollsPage
-from mysite.features.lib.pages.admin_page import AdminPage
-from mysite.features.lib.pages.object_admin_page import ObjectAdminPage
+from behave_unchained.features.lib.pages.polls_page import PollsPage
+from behave_unchained.features.lib.pages.admin_page import AdminPage
+from behave_unchained.features.lib.pages.object_admin_page import ObjectAdminPage
 
 use_step_matcher("re")
 

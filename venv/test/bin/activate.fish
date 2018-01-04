@@ -36,7 +36,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/dazzla/dev/django/mysite/venv/test"
+set -gx VIRTUAL_ENV "/Users/dazzla/dev/django/behave_unchained/venv/test"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
