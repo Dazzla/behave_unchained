@@ -5,6 +5,7 @@ from behave_unchained.features import environment
 
 class PollsPage(BasePage):
     locator_dictionary = {
+        "page_header": (By.TAG_NAME, 'h1'),
         "page_text": (By.TAG_NAME, 'body')
     }
 
@@ -15,7 +16,8 @@ class PollsPage(BasePage):
             base_url=environment.BASE_URL)
 
     def is_displayed(self):
-        if self.find_element(*self.locator_dictionary['page_text']):
+        header_text = self.find_element(*self.locator_dictionary['page_header']).text
+        if 'Polls Page' in header_text:
             return True
         else:
             return False
