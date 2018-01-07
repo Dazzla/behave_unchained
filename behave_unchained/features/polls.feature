@@ -13,3 +13,4 @@ Feature: Polls
 
   Scenario: Vote in poll
     When I am on a question page
+    Then I can vote in a poll

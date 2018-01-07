@@ -24,4 +24,5 @@ class PollsPage(BasePage):
             return False
 
     def first_question_link(self):
+        self.is_displayed()
         return self.find_element(*self.locator_dictionary['first_question_link'])
