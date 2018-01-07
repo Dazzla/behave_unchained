@@ -18,11 +18,9 @@ class QuestionPage(BasePage):
             base_url=environment.BASE_URL)
 
     def is_displayed(self):
-        element = self.find_element(*self.locator_dictionary['first_choice'])
-        assert element
+        return self.find_element(*self.locator_dictionary['first_choice'])
 
     def vote_in_poll(self):
-        self.is_displayed()
+        assert self.is_displayed()
         self.find_element(*self.locator_dictionary['first_choice']).click()
         self.find_element(*self.locator_dictionary['submit_button']).click()
-        pass

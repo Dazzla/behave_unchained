@@ -12,5 +12,7 @@ Feature: Polls
     Then I can access a question page
 
   Scenario: Vote in poll
-    When I am on a question page
-    Then I can vote in a poll
+    When I vote in a poll
+    Then I see the results displayed
+    And I can access the vote page
+
