@@ -6,7 +6,8 @@ from behave_unchained.features import environment
 class PollsPage(BasePage):
     locator_dictionary = {
         "page_header": (By.TAG_NAME, 'h1'),
-        "page_text": (By.TAG_NAME, 'body')
+        "page_text": (By.TAG_NAME, 'body'),
+        "first_question_link": (By.ID, 'question-1')
     }
 
     def __init__(self, context):
@@ -21,3 +22,6 @@ class PollsPage(BasePage):
             return True
         else:
             return False
+
+    def first_question_link(self):
+        return self.find_element(*self.locator_dictionary['first_question_link'])
