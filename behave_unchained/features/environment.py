@@ -6,7 +6,7 @@ from selenium import webdriver
 
 BASE_URL = "http://127.0.0.1:8000/"
 ADMIN_URL = BASE_URL + 'admin/'
-ADMIN_USERNAME = 'dazzla'
+ADMIN_USERNAME = 'admin'
 
 
 def before_feature(context, feature):

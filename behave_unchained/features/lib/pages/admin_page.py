@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from .base_page_object import BasePage
 from behave_unchained.features import environment
-from behave_unchained.features.lib import passwords
+from behave_unchained import passwords
 
 
 class AdminPage(BasePage):

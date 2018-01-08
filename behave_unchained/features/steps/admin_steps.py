@@ -2,7 +2,7 @@ from behave import *
 from behave_unchained.features import environment
 from behave_unchained.features.lib.pages.admin_page import AdminPage
 from behave_unchained.features.lib.pages.object_admin_page import ObjectAdminPage
-from behave_unchained.features.lib import passwords
+from behave_unchained import passwords
 
 use_step_matcher("re")
 
