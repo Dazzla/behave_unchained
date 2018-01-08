@@ -1,3 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
-/behave_unchained/features/lib/passwords.py
+/behave_unchained/passwords.py
 /behave_unchained/seleniumframework_tests.log
+/behave_unchained/failed_scenarios_screenshots
+/failed_scenarios_screenshots
