@@ -6,10 +6,26 @@ h1 {
     color:lightgreen;
 }
 
+label {
+    color:lightgreen;
+}
+
 ol {
     color:lightgreen;
 }
 
 body {
     background: orange url("background.gif") no-repeat center;
+    font-family: sans-serif;
+}
+
+#submit_button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
 }
