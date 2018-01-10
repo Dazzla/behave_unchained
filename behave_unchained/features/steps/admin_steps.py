@@ -14,13 +14,6 @@ def step_impl(context):
     assert(admin_page.is_logged_in())
 
 
-# @step("I access polls admin")
-# def step_impl(context):
-#     object_admin = ObjectAdminPage(context)
-#     object_admin.visit(environment.ADMIN_URL + 'polls')
-#     assert (object_admin.is_displayed())
-
-
 @step("I access (?P<object_type>\w+) admin")
 def step_impl(context, object_type):
     object_admin = ObjectAdminPage(context)
