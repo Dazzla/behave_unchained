@@ -21,7 +21,7 @@ def before_feature(context, feature):
     context.logger.setLevel(logging.DEBUG)
 
 
-def before_scenario(context, scenario):
+# def before_scenario(context, scenario):
     print("User data:", context.config.userdata)
     # behave -D BROWSER=chrome
     if 'BROWSER' in context.config.userdata.keys():
@@ -60,11 +60,11 @@ def after_scenario(context, scenario):
             os.makedirs("failed_scenarios_screenshots")
         os.chdir("failed_scenarios_screenshots")
         context.browser.save_screenshot(scenario.name + "_failed.png")
-    context.browser.quit()
 
 
 def after_feature(context, feature):
     print("\nAfter Feature")
+    context.browser.quit()
 
 
 def after_all(context):
