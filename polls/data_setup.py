@@ -1,6 +1,6 @@
 # Not currently working as a script
 from django.db.models.query import QuerySet
-from polls.models import Question
+from .models import Question, Choice
 from django.utils import timezone
 from faker import Faker
 

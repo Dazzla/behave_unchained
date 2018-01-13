@@ -20,10 +20,13 @@ def before_feature(context, feature):
     context.logger.addHandler(handler)
     context.logger.setLevel(logging.DEBUG)
 
-
-# def before_scenario(context, scenario):
     print("User data:", context.config.userdata)
     # behave -D BROWSER=chrome
+    initialise_browser(context)
+    print("Before scenario\n")
+
+
+def initialise_browser(context):
     if 'BROWSER' in context.config.userdata.keys():
         if context.config.userdata['BROWSER'] is None:
             BROWSER = 'chrome'
@@ -31,8 +34,6 @@ def before_feature(context, feature):
             BROWSER = context.config.userdata['BROWSER']
     else:
         BROWSER = 'chrome'
-    # For some reason, python doesn't have switch case -
-    # http://stackoverflow.com/questions/60208/replacements-for-switch-statement-in-python
     if BROWSER == 'chrome':
         context.browser = webdriver.Chrome()
     elif BROWSER == 'firefox':
@@ -47,9 +48,7 @@ def before_feature(context, feature):
         context.browser = webdriver.PhantomJS()
     else:
         print("Browser you entered:", BROWSER, "is invalid value")
-
     context.browser.maximize_window()
-    print("Before scenario\n")
 
 
 def after_scenario(context, scenario):

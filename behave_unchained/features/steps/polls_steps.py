@@ -46,3 +46,9 @@ def step_impl(context):
     question_page = QuestionPage(context)
     assert question_page.is_displayed()
     pass
+
+
+@then("I can access a question detail page")
+def step_impl(context):
+
+    pass
